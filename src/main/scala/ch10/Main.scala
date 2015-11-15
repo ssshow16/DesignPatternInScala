@@ -5,8 +5,9 @@ object Main extends App{
   var seed1 = 1
   var seed2 = 2
 
-  val player1 = new Player("홍길동",new WinningStrategy(seed1))
-  val player2 = new Player("임꺽정",new ProbStrategy(seed2))
+  // val player1 = new Player("홍길동",new WinningStrategy(seed1))
+  val player1 = new Player("임꺽정",new ProbStrategy(seed1))
+  val player2 = new Player("랜덤",new RandomStrategy(seed2))
 
   for(i <- 0 to 100){
     val nextHand1 = player1.nextHand

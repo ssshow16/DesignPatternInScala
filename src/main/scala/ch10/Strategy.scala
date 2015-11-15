@@ -57,3 +57,14 @@ class ProbStrategy(seed:Int) extends Strategy {
       history(prevHandValue)((currentHandValue + 2) % 3) = history(prevHandValue)((currentHandValue + 2) % 3)+1
     }
 }
+
+class RandomStrategy(seed:Int) extends Strategy {
+  import java.util.Random
+
+  val random = new Random(seed)
+  var won = false
+  
+  def nextHand : Hand = Hand.getHand(random.nextInt(3))
+  def study(win:Boolean) = won = win 
+}
+
