@@ -21,9 +21,7 @@ trait SideBorder extends Display {
 }
 
 trait UpDownBorder extends Display { 
-
 	val upDownChar:String
-
 	abstract override def columns = super.columns
 	abstract override def rows = 1 + super.rows + 1
 	abstract override def rowText(row:Int) = 
@@ -35,11 +33,9 @@ trait UpDownBorder extends Display {
 }
 
 trait FullBorder extends Display {
-
 	val edgeChar:String
 	val upDownChar:String
 	val sideChar:String
-
 	abstract override def columns = 1 + super.columns + 1
 	abstract override def rows = 1 + super.rows + 1
 	abstract override def rowText(row:Int) = {

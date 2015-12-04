@@ -1,4 +1,4 @@
-package ch10
+package strategy
 
 import org.specs2._
 

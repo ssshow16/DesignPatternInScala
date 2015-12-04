@@ -1,8 +1,8 @@
-package ch11
+package composite
 
 import org.specs2._
 
-import ch11.jstyle._
+import composite.jstyle._
 
 class CompositeSpec extends org.specs2.mutable.Specification {
 
