@@ -1,4 +1,4 @@
-package ch10
+package strategy
 
 object Main extends App{
 

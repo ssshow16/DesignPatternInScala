@@ -1,4 +1,4 @@
-package ch10
+package strategy
 
 class Hand(v:Int){
 
