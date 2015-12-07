@@ -1,6 +1,7 @@
 package visitor
 
 import scala.collection.Iterator
+import scala.collection.mutable.ListBuffer
 
 abstract class Visitor{
 	def visit(file:File)
@@ -39,7 +40,7 @@ class Directory(n:String, var children:List[Entry]) extends Entry{
 }
 
 class ListVisitor extends Visitor{
-	var currentDir = ""
+	var currentDir = ""  // 하위 탐색시 이 값이 계속 변경됨.!!
 	def visit(file:File) = println(s"$currentDir/$file")
 	def visit(directory:Directory) = {
 		println(s"$currentDir/$directory")
@@ -49,4 +50,15 @@ class ListVisitor extends Visitor{
 		currentDir = savedDir
 	}
 }
+
+class FileFindVisitor(pattern:String) extends Visitor{
+	var files = new ListBuffer[File]
+	def foundFiles:Iterator[File] = files.iterator
+	def visit(file:File) = {
+		if(file.name.endsWith(pattern)) files += file
+	}
+	def visit(directory:Directory) = 
+		directory.iterator.foreach(e => e.accept(this))
+}
+
 
