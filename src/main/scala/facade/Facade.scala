@@ -54,7 +54,6 @@ object PageMaker{
 		writer.close()
 
 		println(s"${filename} is created for ${mailaddr} ($username)")
-
 	}
 }
 
