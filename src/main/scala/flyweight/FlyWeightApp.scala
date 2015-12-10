@@ -9,5 +9,6 @@ object FlyWeightApp{
       System.exit(0)
     }
     new BigString(args(0)).print()
+    // new BigString(args(0), false).print()
   }
 }
