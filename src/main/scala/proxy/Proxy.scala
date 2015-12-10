@@ -26,10 +26,10 @@ class Printer(var name:String) extends Printable{
 
 class PrinterProxy(var name:String) extends Printable {
   /**
-   * lazy loading이 되었는지 확인을 위한 flag
+   * lazy loading flag
    */ 
   private var printerInitialized = false
-  
+
   lazy val real:Printer = {
     printerInitialized = true
     new Printer(name)
