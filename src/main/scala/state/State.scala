@@ -55,7 +55,7 @@ object NightState {
 }
 
 trait Context{
-  def setColor(hour:Int)
+  def setClock(hour:Int)
   def changeState(state:State)
   def callSecurityCenter(msg:String)
   def recordLog(msg:String)
