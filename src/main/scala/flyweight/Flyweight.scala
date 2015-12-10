@@ -30,6 +30,6 @@ class BigString(string:String){
   private val bigchars:Array[BigChar] = init().toArray
   private def init():Seq[BigChar] = 
     for(i <- 0 until string.length)
-      yield BigCharFactory.apply(string(i))
+      yield BigCharFactory(string(i))
   def print() = bigchars.foreach(_.print)
 }
