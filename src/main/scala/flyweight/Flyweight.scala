@@ -26,10 +26,14 @@ object BigCharFactory extends FlyWeightFactory[Char,BigChar] {
   def createFlyWeight(charname:Char) = new BigChar(charname)  
 }
 
-class BigString(string:String){
+class BigString(string:String, shared:Boolean){
+  def this(string:String) = this(string,true) 
   private val bigchars:Array[BigChar] = init().toArray
   private def init():Seq[BigChar] = 
-    for(i <- 0 until string.length)
-      yield BigCharFactory(string(i))
+    for(c <- string)
+      yield 
+        if(shared) BigCharFactory.apply(c)
+        else new BigChar(c)
+
   def print() = bigchars.foreach(_.print)
 }
